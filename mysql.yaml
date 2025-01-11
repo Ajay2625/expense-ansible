@@ -1,0 +1,9 @@
+- name: configure mysql server
+  hosts: mysql
+  become: true
+  tasks:
+    - name: install mysql-server
+      ansible.buitlin.package:
+        name: mysql-server
+        state: present
+        
