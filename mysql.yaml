@@ -1,5 +1,5 @@
 - name: configure mysql server
-  hosts: frontend
+  hosts: database
   become: true
   tasks:
     - name: install pymysql
