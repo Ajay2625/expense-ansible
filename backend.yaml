@@ -12,3 +12,6 @@
       ansible.builtin.package:
         name: nodejs
         state: present
+    - name: create user
+      ansible.builtin.user:
+        name: expense
