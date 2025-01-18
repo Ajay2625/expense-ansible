@@ -15,3 +15,19 @@
     - name: create user
       ansible.builtin.user:
         name: expense
+
+    - name: create directory
+      ansible.builtin.file:
+        name: /app
+        state: directory
+
+    - name: download the zip file
+      ansible.builtin.get_url:
+        url: https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip
+        dest: /tmp/backend.zip
+
+    - name: unziping the zip file
+      ansible.builtin.unarchive:
+        src: /tmp/backend.zip
+        dest: /app
+        remote_src: yes
